@@ -10,6 +10,14 @@ class TreeNode:
         self.left = left
         self.right = right
 
+'''
+Base case: if the current node is null, return null.
+Use a temporary variable to swap the left and right nodes.
+Then, use DFS post-order to recursively go through all the nodes in the binary tree.
+
+Time: O(n) - iterating through all nodes in the binary tree
+Space: O(n) - recursive call stack
+'''
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if not root:
