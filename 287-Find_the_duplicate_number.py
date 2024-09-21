@@ -1,7 +1,9 @@
-# DESCRIPTION
-# Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
-# There is only one repeated number in nums, return this repeated number.
-# You must solve the problem without modifying the array nums and uses only constant extra space.
+''' 
+DESCRIPTION
+Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+There is only one repeated number in nums, return this repeated number.
+You must solve the problem without modifying the array nums and uses only constant extra space.
+'''
 
 test1 = [1,3,4,2,2]
 test2 = [3,1,3,4,2]
@@ -12,11 +14,12 @@ test3 = [5,4,3,2,1] # question guarantees one repeated number, but let's pretend
 # Space: 
 
 
-
-# Not the real solution, but if we had extra space then we could use a hashmap/dictionary
-# Can also use a set
-# Time: O(n)
-# Space: O(n)
+'''
+Not the real solution, but if we had extra space then we could use a hashmap/dictionary
+Can also use a set
+Time: O(n)
+Space: O(n)
+'''
 def findDuplicateNumber_hashMap(intArray):
     dict = {}
     for i in intArray:
@@ -32,11 +35,12 @@ print(f"findDuplicateNumber_hashMap2: {findDuplicateNumber_hashMap(test2)}")
 print(f"findDuplicateNumber_hashMap3: {findDuplicateNumber_hashMap(test3)}")
 print("-----------------------------------")
 
-
-# If we could modify the input array then we could sort it in the first iteration, 
-# then look for adjacent repeating numbers in the second iteration 
-# Time: O(n log n) MergeSort
-# Space: O(n)
+'''
+If we could modify the input array then we could sort it in the first iteration, 
+then look for adjacent repeating numbers in the second iteration 
+Time: O(n log n) MergeSort
+Space: O(n)
+'''
 def findDuplicateNumber_mergeSort(intArray):
     intArray = mergeSort(intArray)
 
@@ -45,9 +49,8 @@ def findDuplicateNumber_mergeSort(intArray):
             return intArray[i]
         
     return "No duplicate number"
-        
-# Divide and conquer: break down the array into the smallest pieces 
-# possible; integer primitives
+
+# Divide and conquer: break down the array into the smallest pieces possible; integer primitives
 def mergeSort(array):
     if len(array) == 1:
         return array
