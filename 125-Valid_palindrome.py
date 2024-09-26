@@ -9,6 +9,10 @@ and numbers.
 Given a string s, return true if it is a palindrome, or false otherwise.
 '''
 
+'''
+Time: O(n) - using 2 pointers, we have to iterate through at most n / 2 characters, but O(n / 2) is still O(n)
+Space: O(1) - does not require additional data structures other than the 2 pointer variables
+'''
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         left = 0
