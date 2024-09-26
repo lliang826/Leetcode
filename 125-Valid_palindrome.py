@@ -1,4 +1,6 @@
 '''
+125. Valid Palindrome
+
 DESCRIPTION:
 A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all 
 non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters 
@@ -25,4 +27,8 @@ class Solution:
             right -= 1
 
         return True
-    
+
+solution = Solution()
+print(f'"A man, a plan, a canal: Panama" => {solution.isPalindrome("A man, a plan, a canal: Panama")}')
+print(f'"race a car" => {solution.isPalindrome("race a car")}')
+print(f'" " => {solution.isPalindrome(" ")}')
