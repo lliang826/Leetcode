@@ -1,4 +1,6 @@
 '''
+1. Two sum
+
 DESCRIPTION:
 Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -14,7 +16,7 @@ the 2 indices as the answer. If the difference does not exist in the hashmap, st
 hashmap for future iterations.
 
 Time: O(n) - we could potentially iterate through the entire list
-Space: O(n) - we could potentially store all the items in the list except for the last one, but O(n) - 1 is still O(n
+Space: O(n) - we could potentially store all the items in the list except for the last one, but O(n - 1) is still O(n)
 '''
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
