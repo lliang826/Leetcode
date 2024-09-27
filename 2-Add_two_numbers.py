@@ -79,3 +79,34 @@ class Solution:
             curr = curr.next
 
         return head.next
+    
+
+    
+solution = Solution()
+
+l1 = solution.listToLinkedList([2, 4, 3])
+l2 = solution.listToLinkedList([5,6,4])
+head = solution.addTwoNumbers(l1, l2)
+array = []
+while head:
+    array.append(head.val)
+    head = head.next
+print(array)
+
+l1 = solution.listToLinkedList([0])
+l2 = solution.listToLinkedList([0])
+head = solution.addTwoNumbers(l1, l2)
+array = []
+while head:
+    array.append(head.val)
+    head = head.next
+print(array)
+
+l1 = solution.listToLinkedList([9,9,9,9,9,9,9])
+l2 = solution.listToLinkedList([9,9,9,9])
+head = solution.addTwoNumbers(l1, l2)
+array = []
+while head:
+    array.append(head.val)
+    head = head.next
+print(array)
