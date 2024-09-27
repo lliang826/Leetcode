@@ -1,5 +1,3 @@
-from typing import Optional
-
 '''
 2. Add two numbers
 
@@ -23,12 +21,24 @@ Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 Output: [8,9,9,9,0,0,0,1]
 '''
 
+from typing import Optional
+
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
-        
+
+'''
+My own solution for this problem (definitely not the best). Instead of dealing with the carry overs and the 
+modulus that would come with adding 2 numbers, I iterate through the linked lists and convert the values 
+into integers before performing the addition. To do so, I convert each value to a string and concatenate them. 
+Since the digits are stored in reverse order, I using slicing to reverse the strings before converting them 
+to integers. The sum is finally returned as a new linked list.
+
+Time: O(n) - we need to iterate through all the digits of l1, l2 and the sum (whichever is longest)
+Space: O(n) - a new linked list is created for the sum
+'''
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         firstString = ""
@@ -58,6 +68,3 @@ class Solution:
             curr = curr.next
 
         return head
-    
-# solution = Solution()
-# solution.addTwoNumbers([2,4,3], [5,6,4])
