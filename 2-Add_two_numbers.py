@@ -21,7 +21,7 @@ Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 Output: [8,9,9,9,0,0,0,1]
 '''
 
-from typing import Optional
+from typing import List, Optional
 
 # Definition for singly-linked list.
 class ListNode:
@@ -60,11 +60,11 @@ class Solution:
         sum = firstInt + secondInt
         stringSum = str(sum)
 
-        head = ListNode(stringSum[-1])
+        head = ListNode(0)
         curr = head
-        for i in range(len(stringSum) - 2, -1, -1):
+        for i in range(len(stringSum) - 1, -1, -1):
             node = ListNode(int(stringSum[i]))
             curr.next = node
             curr = curr.next
 
-        return head
+        return head.next
