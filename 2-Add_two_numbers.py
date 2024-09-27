@@ -68,3 +68,14 @@ class Solution:
             curr = curr.next
 
         return head.next
+    
+    
+    def listToLinkedList(self, arrayList: List[int]):
+        head = ListNode(0)
+        curr = head
+        for i in arrayList:
+            node = ListNode(i)
+            curr.next = node
+            curr = curr.next
+
+        return head.next
