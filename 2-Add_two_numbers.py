@@ -36,6 +36,9 @@ into integers before performing the addition. To do so, I convert each value to 
 Since the digits are stored in reverse order, I using slicing to reverse the strings before converting them 
 to integers. The sum is finally returned as a new linked list.
 
+The problem with this solution is that it doesn't work for very large integers: adding 2 large integers
+could cause an integer overflow.
+
 Time: O(n) - we need to iterate through all the digits of l1, l2 and the sum (whichever is longest)
 Space: O(n) - a new linked list is created for the sum
 '''
