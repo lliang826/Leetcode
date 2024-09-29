@@ -21,7 +21,8 @@ Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 Output: [8,9,9,9,0,0,0,1]
 '''
 
-from typing import List, Optional
+from math import floor
+from typing import Callable, List, Optional
 
 # Definition for singly-linked list.
 class ListNode:
@@ -30,7 +31,7 @@ class ListNode:
         self.next = next
 
 '''
-My own solution for this problem (definitely not the best). Instead of dealing with the carry overs and the 
+My solution for this problem (definitely not the best). Instead of dealing with the carry overs and the 
 modulus that would come with adding 2 numbers, I iterate through the linked lists and convert the values 
 into integers before performing the addition. To do so, I convert each value to a string and concatenate them. 
 Since the digits are stored in reverse order, I using slicing to reverse the strings before converting them 
@@ -43,7 +44,7 @@ Time: O(n) - we need to iterate through all the digits of l1, l2 and the sum (wh
 Space: O(n) - a new linked list is created for the sum
 '''
 class Solution:
-    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+    def addTwoNumbers1(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         firstString = ""
         while l1:
             firstString += str(l1.val)
@@ -72,8 +73,28 @@ class Solution:
 
         return head.next
     
+
+    def addTwoNumbers2(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        head = ListNode(0)
+        curr = head
+        carryOver = 0
+
+        while l1 or l2 or carryOver:
+            num1 = 0 if l1 is None else l1.val
+            num2 = 0 if l2 is None else l2.val
+
+            sum = num1 + num2 + carryOver
+            carryOver = floor(sum / 10)
+            curr.next = ListNode(sum % 10)
+            curr = curr.next
+
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
+        
+        return head.next
     
-    def listToLinkedList(self, arrayList: List[int]):
+    
+    def listToLinkedList(self, arrayList: List[int]) -> List[ListNode]:
         head = ListNode(0)
         curr = head
         for i in arrayList:
@@ -89,7 +110,7 @@ solution = Solution()
 
 l1 = solution.listToLinkedList([2, 4, 3])
 l2 = solution.listToLinkedList([5,6,4])
-head = solution.addTwoNumbers(l1, l2)
+head = solution.addTwoNumbers1(l1, l2)
 array = []
 while head:
     array.append(head.val)
@@ -98,7 +119,7 @@ print(array)
 
 l1 = solution.listToLinkedList([0])
 l2 = solution.listToLinkedList([0])
-head = solution.addTwoNumbers(l1, l2)
+head = solution.addTwoNumbers1(l1, l2)
 array = []
 while head:
     array.append(head.val)
@@ -107,7 +128,7 @@ print(array)
 
 l1 = solution.listToLinkedList([9,9,9,9,9,9,9])
 l2 = solution.listToLinkedList([9,9,9,9])
-head = solution.addTwoNumbers(l1, l2)
+head = solution.addTwoNumbers1(l1, l2)
 array = []
 while head:
     array.append(head.val)
