@@ -120,32 +120,25 @@ class Solution:
         return head.next
     
 
+    def printSum(self, l1: List[int], l2: List[int], func: Callable) -> None:
+        linkedList1 = self.listToLinkedList(l1)
+        linkedList2 = self.listToLinkedList(l2)
+        head = func(linkedList1, linkedList2)
+        array = []
+        while head:
+            array.append(head.val)
+            head = head.next
+        print(array)
+    
+
     
 solution = Solution()
 
-l1 = solution.listToLinkedList([2, 4, 3])
-l2 = solution.listToLinkedList([5,6,4])
-head = solution.addTwoNumbers1(l1, l2)
-array = []
-while head:
-    array.append(head.val)
-    head = head.next
-print(array)
+solution.printSum([2,4,3], [5,6,4], solution.addTwoNumbers1)
+solution.printSum([2,4,3], [5,6,4], solution.addTwoNumbers2)
 
-l1 = solution.listToLinkedList([0])
-l2 = solution.listToLinkedList([0])
-head = solution.addTwoNumbers1(l1, l2)
-array = []
-while head:
-    array.append(head.val)
-    head = head.next
-print(array)
+solution.printSum([0], [0], solution.addTwoNumbers1)
+solution.printSum([0], [0], solution.addTwoNumbers2)
 
-l1 = solution.listToLinkedList([9,9,9,9,9,9,9])
-l2 = solution.listToLinkedList([9,9,9,9])
-head = solution.addTwoNumbers1(l1, l2)
-array = []
-while head:
-    array.append(head.val)
-    head = head.next
-print(array)
+solution.printSum([9,9,9,9,9,9,9], [9,9,9,9], solution.addTwoNumbers1)
+solution.printSum([9,9,9,9,9,9,9], [9,9,9,9], solution.addTwoNumbers2)
