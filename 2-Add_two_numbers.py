@@ -74,6 +74,21 @@ class Solution:
         return head.next
     
 
+    '''
+    This is the ideal solution that involves carrying over any 1s. In this solution, we are adding 1 digit from each
+    linked list in each iteration, plus the carry over. To get the carry over, we have to find the floor of the sum
+    divided by 10. The digit inserted into the new node is simply the remainder of this division operation (given by
+    the modulus operator).
+
+    Some tricky parts (edge cases):
+        - for cases where one linked list has more digits than the other, we have to set the digit to 0 for the current
+            node in the shorter linked list (lines 98 + 99)
+        - the 'while' condition must check if the carryOver has a value: if the sum of the last digits is > 9, this
+            carryOver should be included in the answer
+
+    Time: O(n) - iterating through the length of the linked lists, where n is the length of the longest list
+    Space: O(n) - creating a new linked list for the sum
+    '''
     def addTwoNumbers2(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         head = ListNode(0)
         curr = head
