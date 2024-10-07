@@ -54,3 +54,18 @@ class Solution:
         
         print(arr)
     
+
+
+solution = Solution()
+
+input1 = [1,2,3,4,5]
+list1 = solution.listToLinkedList(input1)
+solution.printLinkedList(solution.reverseList(list1))
+
+input2 = [1,2]
+list2 = solution.listToLinkedList(input2)
+solution.printLinkedList(solution.reverseList(list2))
+
+input3 = []
+list3 = solution.listToLinkedList(input3)
+solution.printLinkedList(solution.reverseList(list3))
