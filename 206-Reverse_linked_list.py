@@ -35,3 +35,22 @@ class Solution:
             head = temp
 
         return prev
+    
+    def listToLinkedList(self, arrayList: List[int]) -> List[ListNode]:
+        head = ListNode(0)
+        curr = head
+        for i in arrayList:
+            node = ListNode(i)
+            curr.next = node
+            curr = curr.next
+
+        return head.next
+    
+    def printLinkedList(self, head: List[ListNode]) -> None:
+        arr = []
+        while head:
+            arr.append(head.val)
+            head = head.next
+        
+        print(arr)
+    
