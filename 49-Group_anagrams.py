@@ -27,3 +27,17 @@ class Solution:
             dict[tuple(chars)].append(str)
 
         return dict.values()
+    
+solution = Solution()
+
+input1 = ["eat","tea","tan","ate","nat","bat"]
+print(list(solution.groupAnagrams(input1)))
+
+input2 = [""]
+print(list(solution.groupAnagrams(input2)))
+
+input3 = ["a"]
+print(list(solution.groupAnagrams(input3)))
+
+input4 = ["ddddddddddg","dgggggggggg"]
+print(list(solution.groupAnagrams(input4)))
