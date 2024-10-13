@@ -22,9 +22,8 @@ class Solution:
             chars = [0] * 26
 
             for char in str:
-                chars[ord(char) - ord('a')] =+ 1
+                chars[ord(char) - ord('a')] += 1
 
             dict[tuple(chars)].append(str)
 
         return dict.values()
-    
