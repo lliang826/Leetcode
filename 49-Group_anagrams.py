@@ -20,12 +20,13 @@ class Solution:
     This solution requires a hashmap (or dictionary in Python), where the key:value pair is [# of letter occurences]: [string].
     The tricky part of this problem is determing which strings are anagrams of each other. This problem is very similar to 
     242. Valid anagram, but in problem 242, I used a hashmap for the solution. Initially, I tried to come up with a nested
-    hashmap solution, but something like that problably wouldn't work.
+    hashmap solution, but having the inner hashmap as the key doesn't work; it only works as the value.
 
     A smarter solution is to use an array to keep track of the letters. Anagrams can be determined by matching all the letters 
-    in the strings, including duplicates, but this can be done by creating an array of 26 zeroes, where each zero represents one
-    of the 26 letters in the alphabet according to the array index. When iterating through the characters in the string, the integer 
-    value at each index can be incremented to represent the corresponding letter. 
+    in the strings, including duplicates. Since the input array of strings contains only lowercase letters, this can be done by 
+    creating an array of 26 zeroes, where each zero represents one of the 26 letters in the alphabet according to the array index. 
+    When iterating through the characters in the string, the integer value at each index can be incremented to represent the 
+    corresponding letter. 
 
     Once a string has been converted to its integer array representation, it can be stored in the hashmap; anagrams will be
     grouped together so the result can be found by returning the dictionary.values() function. 
@@ -40,6 +41,10 @@ class Solution:
             print(foo["apple"])
         - In Python, dictionary keys cannot be mutable. Lists are mutable, but tuples are immutable, so the integer array has to be
         cast as a tuple in order for the code to work
+
+    Time: O(m * n), where m is the length of the input string array, and n is the average length of each string
+    Space: O(n), where n is the length of the input string array (if the input string array has no anagrams, we would need to create
+        a new [int]: [string] record in the dictionary for each string because they're all different)
     '''
     def groupAnagrams1(self, strs: List[str]) -> List[List[str]]:
         dict = defaultdict(list)
