@@ -94,14 +94,29 @@ class Solution:
         sortedT = sorted(t)
         return sortedS == sortedT
 
-'''
-Test cases:
-s = "anagram"
-t = "nagaram"
 
-s = "rat"
-t = "car"
 
-s = ""
-t = ""
-'''
+solution = Solution()
+
+input1S = "anagram"
+input1T = "nagaram"
+
+input2S = "rat"
+input2T = "car"
+
+input3S = ""
+input3T = ""
+
+print(solution.isAnagram1(input1S, input1T))
+print(solution.isAnagram1(input2S, input2T))
+print(solution.isAnagram1(input3S, input3T))
+print()
+
+print(solution.isAnagram2(input1S, input1T))
+print(solution.isAnagram2(input2S, input2T))
+print(solution.isAnagram2(input3S, input3T))
+print()
+
+print(solution.isAnagram3(input1S, input1T))
+print(solution.isAnagram3(input2S, input2T))
+print(solution.isAnagram3(input3S, input3T))
