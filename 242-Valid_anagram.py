@@ -12,6 +12,11 @@ Output: true
 Example 2:
 Input: s = "rat", t = "car"
 Output: false
+
+Constraints:
+
+1 <= s.length, t.length <= 5 * 104
+s and t consist of lowercase English letters.
 '''
 
 '''
@@ -49,6 +54,15 @@ class Solution:
         return True
     
 
+    '''
+    Another solution is to use an array to compare the letters in the strings. Since we know that the characters in the strings are 
+    lowercase letters, we can create an array with 26 zeroes; the index represents the letter (letter 'a' is 0, 'b' is 1, etc.).
+    Like the solution above, we have to iterate through the first string and count the characters, then iterate through the second
+    string and determine if the characters are the same. Any non-zero indices mean that there are character differences.
+
+    Time: O(n), where n is the length of the longer string, or n is 26 because we have to go through the alphabet
+    Space: O(n), where n is the length of the alphabet => 26
+    '''
     def isAnagram2(self, s: str, t: str) -> bool:
         letters = [0] * 26
 
