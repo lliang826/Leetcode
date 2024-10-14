@@ -60,6 +60,20 @@ class Solution:
         return list(dict.values())
     
 
+    '''
+    Another solution: instead of using an array to keep track of the letters, sorting the characters in a string is also a way to
+    determine anagrams. Sorting the characters in a string will rearrange them alphabetically, which means that anagrams will have
+    the same sorted string. This solution also uses a hashmap, where the key:value pair is sortedString: [string]. In addition, this
+    solution is slightly less efficient than the one above because sorting is an O(n log n) operation.
+
+    Some things to note:
+        - sort() is a method of the list class and can only be used for lists (e.g. strList.sort()). It returns the sorted list in place
+        - sorted() can be used on any iterable and it returns a new sorted list, leaving the original unchanged
+
+    Time: O(m * n log n), where m is the length of the input string array, and n log n is for sorting the characters in each string
+    Space: O(n), where n is the length of the input string array (if every string is different and there are no anagrams, there would
+        be a new hashmap record for each string)
+    '''
     def groupAnagrams2(self, strs: List[str]) -> List[List[str]]:
         d = defaultdict(list)
 
