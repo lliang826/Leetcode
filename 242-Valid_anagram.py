@@ -81,6 +81,19 @@ class Solution:
         return True
     
 
+    '''
+    The third solution is to use sorting. Since anagrams have the same letters, sorting the characters in each string will make the
+    strings the same. 
+
+    Time: O(n log n) because of sorting
+    Space: O(n), where n is the length of the string; the sorted() Python function returns a new list, so by calling sorted() on both
+        strings, it is O(2 * n) => O(n)
+    '''
+    def isAnagram3(self, s: str, t: str) -> bool:
+        sortedS = sorted(s)
+        sortedT = sorted(t)
+        return sortedS == sortedT
+
 '''
 Test cases:
 s = "anagram"
