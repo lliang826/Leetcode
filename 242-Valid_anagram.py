@@ -27,7 +27,7 @@ Time: O(n) - must iterate through all the characters in both strings
 Space: O(n) - storing all the characters of one string into a hashmap/dictionary
 '''
 class Solution:
-    def isAnagram(self, s: str, t: str) -> bool:
+    def isAnagram1(self, s: str, t: str) -> bool:
         charMap = dict()
 
         for char in s:
@@ -44,6 +44,24 @@ class Solution:
 
         for key in charMap:
             if charMap[key] != 0:
+                return False
+
+        return True
+    
+
+    def isAnagram2(self, s: str, t: str) -> bool:
+        letters = [0] * 26
+
+        for char in s:
+            index = ord(char) - ord('a')
+            letters[index] += 1
+
+        for char in t:
+            index = ord(char) - ord('a')
+            letters[index] -= 1
+
+        for i in letters:
+            if i != 0:
                 return False
 
         return True
