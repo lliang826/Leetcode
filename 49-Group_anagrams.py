@@ -59,6 +59,16 @@ class Solution:
 
         return list(dict.values())
     
+
+    def groupAnagrams2(self, strs: List[str]) -> List[List[str]]:
+        d = defaultdict(list)
+
+        for s in strs:
+            letters = str(sorted(s))
+            d[letters].append(s)
+
+        return list(d.values())
+    
 solution = Solution()
 
 input1 = ["eat","tea","tan","ate","nat","bat"]
