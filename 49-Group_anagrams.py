@@ -87,12 +87,16 @@ solution = Solution()
 
 input1 = ["eat","tea","tan","ate","nat","bat"]
 print(solution.groupAnagrams1(input1))
+print(solution.groupAnagrams2(input1))
 
 input2 = [""]
 print(solution.groupAnagrams1(input2))
+print(solution.groupAnagrams2(input2))
 
 input3 = ["a"]
 print(solution.groupAnagrams1(input3))
+print(solution.groupAnagrams2(input3))
 
 input4 = ["ddddddddddg","dgggggggggg"]
 print(solution.groupAnagrams1(input4))
+print(solution.groupAnagrams2(input4))
