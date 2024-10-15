@@ -9,6 +9,21 @@ from typing import List
 
 
 class Solution:
+    '''
+    Divide and conquer iterative solution. In each iteration, we are eliminating half of the possible outcomes
+    to find the target. Low and high pointers are required (or left and right) to indicate the range, and a 
+    middle pointer is required as well. 
+    
+    Since the input array is already sorted in ascending order, if the target is not found at the middle index, 
+    we can eliminate either the lower half or the upper half depending on whether the target is less than or 
+    greater than the value at the middle index.
+
+    Time: O(log n), where n is the # of elements in the input array
+        - In each iteration, we are dividing the array by 2 (n / 2 / 2 / 2 etc.)
+        - Opposite of this would be n * 2 * 2 etc, which can be represented by exponents; exponents and logs
+        are inverses of each other
+    Space: O(1), constant memory
+    '''
     def search(self, nums: List[int], target: int) -> int:
         low = 0
         high = len(nums) - 1
