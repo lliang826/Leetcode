@@ -39,3 +39,8 @@ class Solution:
                 low = mid + 1
                 
         return -1
+    
+
+solution = Solution()
+print(solution.search([-1,0,3,5,9,12], 9))
+print(solution.search([-1,0,3,5,9,12], 2))
