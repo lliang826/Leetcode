@@ -24,7 +24,7 @@ class Solution:
         are inverses of each other
     Space: O(1), constant memory
     '''
-    def search(self, nums: List[int], target: int) -> int:
+    def binarySearchIterative(self, nums: List[int], target: int) -> int:
         low = 0
         high = len(nums) - 1
 
@@ -46,6 +46,37 @@ class Solution:
         return -1
     
 
+    '''
+    Recursive implementation of binary search. Very similar approach to the iterative solution, except that
+    it requires an inner function - we need to pass on the new values of the low and high pointers in each
+    recursive call.
+
+    Time: O(log n), where n is the # of elements in the array
+    Space: O(log n), every recursive call is added to the stack
+    '''
+    def binarySearchRecursive(self, nums: List[int], target: int) -> int:
+
+        def binarySearchRecursiveInner(nums: List[int], target: int, low: int, high: int) -> int:
+            if high < low:
+                return -1
+
+            mid = (high - low) // 2 + low
+
+            if target > nums[mid]:
+                return binarySearchRecursiveInner(nums, target, mid + 1, high)
+            elif target < nums[mid]:
+                return binarySearchRecursiveInner(nums, target, low, mid - 1)
+            else:
+                return mid
+        
+        return binarySearchRecursiveInner(nums, target, 0, len(nums) - 1)
+
+        
+
+
 solution = Solution()
-print(solution.search([-1,0,3,5,9,12], 9))
-print(solution.search([-1,0,3,5,9,12], 2))
+arr = [-1,0,3,5,9,12]
+print(solution.binarySearchIterative(arr, 9))
+print(solution.binarySearchIterative(arr, 2))
+print(solution.binarySearchRecursive(arr, 9))
+print(solution.binarySearchRecursive(arr, 2))
