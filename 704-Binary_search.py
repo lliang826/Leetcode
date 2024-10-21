@@ -29,7 +29,12 @@ class Solution:
         high = len(nums) - 1
 
         while low <= high:
-            mid = (low + high) // 2
+            # If we're dealing with large integers, adding low and high could introduce an integer overflow bug
+            # mid = (low + high) // 2
+
+            # Instead, find the difference between the two pointers and divide this value by 2; this gives us the
+            # halfway point between the two pointers. Then, add this to the low pointer to get mid.
+            mid = (high - low) // 2 + low
             
             if target < nums[mid]:
                 high = mid - 1
