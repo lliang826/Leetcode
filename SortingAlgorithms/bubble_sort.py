@@ -27,8 +27,46 @@ def bubbleSort(arr: List[int]) -> List[int]:
     return arr
 
 
-numbers1: List[int] = [64, 34, 25, 12, 22, 11, 90]
-print(bubbleSort(numbers1))
-
+numbers1 = [64, 34, 25, 12, 22, 11, 90]
 numbers2 = [-2, 45, 0, 11, -9]
+numbers3 = [1, 2, 3, 4, 5]
+numbers4 = [1, 2, 3, 5, 4]
+
+print(bubbleSort(numbers1))
 print(bubbleSort(numbers2))
+print(bubbleSort(numbers3))
+print(bubbleSort(numbers4))
+
+'''
+Optimized version of bubble sort: since bubble sort will always make comparisons, even when
+the array is already sorted, we can introduce a boolean variable to terminate the loop and
+return the array early. 
+
+Same time and space complexities.
+'''
+def optimizedBubbleSort(arr: List[int]) -> List[int]:
+    for i in range(len(arr)):
+        swapped = False
+
+        for j in range(len(arr) - 1 - i):
+            if arr[j] > arr[j + 1]:
+                temp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j + 1] = temp
+
+                swapped = True
+        
+        if not swapped:
+            return arr
+
+    return arr
+
+num1 = [64, 34, 25, 12, 22, 11, 90]
+num2 = [-2, 45, 0, 11, -9]
+num3 = [1, 2, 3, 4, 5]
+num4 = [1, 2, 3, 5, 4]
+
+print(optimizedBubbleSort(num1))
+print(optimizedBubbleSort(num2))
+print(optimizedBubbleSort(num3))
+print(optimizedBubbleSort(num4))
